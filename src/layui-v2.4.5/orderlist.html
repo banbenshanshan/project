@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <link rel="stylesheet" href="../layui-v2.4.5/layui/css/layui.css">
+  <link rel="Bookmark" href="favicon.ico">
+	<link rel="Shortcut Icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../admin/static/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="../admin/static/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="../admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
+	<link rel="stylesheet" type="text/css" href="../admin/static/h-ui.admin/css/style.css" />
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">Super 后台</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          贤心
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">商品管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">商品列表</a></dd>
+            <dd><a href="javascript:;">添加商品</a></dd>
+            <dd><a href="javascript:;">添加分类</a></dd>
+            <!--<dd><a href="">超链接</a></dd>-->
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">用户管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">用户列表</a></dd>
+            <!--<dd><a href="">超链接</a></dd>-->
+          </dl>
+        </li>
+         <li class="layui-nav-item">
+          <a href="javascript:;">订单管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">订单列表</a></dd>
+            <!--<dd><a href="">超链接</a></dd>-->
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!--<div class="layui-body">-->
+    <!-- 内容主体区域 -->
+    		<!--<div class="dislpayArrow hidden-xs">
+			<a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
+		</div>-->
+		<!--/_menu 作为公共5555模版分离出去-->
+
+		<section class="Hui-article-box">
+			<nav class="breadcrumb" style="margin-top: 18px;"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 订单列表
+				<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
+			</nav>
+			<div class="Hui-article" style="max-height: 550px;">
+				<article class="cl pd-20">
+					<!--<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="picture_add('添加图片','picture-add.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加图片</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>-->
+					<div class="mt-20">
+						<table class="table table-border table-bordered table-bg table-hover table-sort">
+							<thead>
+								<tr class="text-c">
+									<th width="40"><input name="" type="checkbox" value=""></th>
+									<th width="80">ID</th>
+									<th width="150">商品名称</th>
+									<th width="90">价格</th>
+									<th width="80">数量</th>
+									<th width="90">运费</th>
+									<th width="90">商品总额</th>
+									<th>下单时间</th>
+									<th width="80">订单总额</th>
+									<th width="90">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!--<tr class="text-c">
+							<td><input name="" type="checkbox" value=""></td>
+							<td>001</td>
+							<td>平凡的世界</td>
+							<td class="text-c">120</td>
+							<td class="text-c">1</td>
+							<td class="text-c">10</td>
+							<td class="text-c">120</td>
+							<td>2014-6-11 11:11:42</td>
+							<td class="text-c">130</td>
+							<td class="td-manage">
+								<!--<a style="text-decoration:none" class="ml-5" onClick="picture_edit('书库编辑','picture-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>-->
+								<!--<a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>-->
+							</tbody>
+						</table>
+						<!--<div>
+							<button onclick="goPage('first')">首页</button>
+							<button onclick="goPage('prev')">上一页</button>
+							<span id="gjy">3/4</span>
+							<input type="number" name="" id='jump'>
+							<button onclick="goPage('jump')">go</button>
+							<button onclick="goPage('next')">下一页</button>
+							<button onclick="goPage('last')">尾页</button>
+						</div>-->
+					</div>
+				</article>
+			</div>
+		</section>
+  <!--</div>-->
+</div>
+<script src="../layui-v2.4.5/layui/layui.js"></script>
+<script type="text/javascript" src="../admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../admin/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="../admin/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="../admin/static/h-ui.admin/js/H-ui.admin.page.js"></script>
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="../admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="../admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../admin/lib/laypage/1.2/laypage.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+			/*图片-编辑*/
+//			function picture_edit(title, url, id) {
+//				//存储修改的商品编号
+//				var storage = window.localStorage
+//				storage.setItem('updateid', id)
+//				//localstorage 存储数据
+//				var index = layer.open({
+//					type: 2,
+//					title: title,
+//					content: url,
+//					id: id
+//				});
+//				layer.full(index);
+//			}
+			/*图片-删除*/
+			function picture_del(obj, id) {
+				console.log(id)
+				layer.confirm('确认要删除吗？', function(index) {
+//					//删除的ajax
+					$.post(rootapi + 'api/orderlist', {
+						id: id
+					}, function(res) {
+						if(res.err == 0) {
+							$(obj).parents("tr").remove();
+							layer.msg('已删除!', {
+								icon: 1,
+								time: 1000
+							});
+							getbookList(nowPage);
+							//							''
+						} else {
+							layer.msg('删除失败!', {
+								icon: 1,
+								time: 1000
+							});
+						}
+					})
+				})
+			}
+//
+//			//己方代码
+			let total = 0;
+			let pageSize = 2;
+			let allPage = 0;
+			let nowPage = 1;
+			let rootapi = 'http://localhost:8012/'
+			//切记存相对路径
+			// 获取book数据的封装
+			function goPage(type) {
+				var targetPage = 1;
+				switch(type) {
+					case 'prev':
+						targetPage = nowPage > 1 ? nowPage - 1 : 1
+
+						break;
+					case 'next':
+						targetPage = nowPage < allPage ? nowPage + 1 : allPage
+
+						break;
+					case 'first':
+						targetPage = 1
+
+						break;
+					case 'last':
+						targetPage = allPage
+						break;
+					case 'jump':
+						targetPage = $('#jump').val()
+						if(targetPage <= allPage) {} else {
+							targetPage = allPage
+							alert('没有更多了')
+						}
+						break;
+				}
+				nowPage = targetPage
+				getbookList(targetPage);
+			}
+			getbookList(nowPage);
+
+			function getbookList(page) {
+				$.post(rootapi + 'api/orderlist', {
+					target: page,
+					pagesize: pageSize
+				}, function(res) {
+					console.log(res.data)
+					if(res.err == 0) {
+						loadingTbody(res.data.orderlist);
+						console.log(res.data.orderlist)
+						$('#total').text(res.data.total)
+						total = res.data.total
+						allPage = Math.ceil(total / pageSize)
+						$('#gjy').text(`${nowPage}/${allPage}页`)
+					} else {
+						alert(res.msg)
+					}
+				},'json')
+			}
+
+var tmpdata=[{id:1,ordername:'苹果1',price:120,number:1,yunfei:10,orderprice:130,time:'2018-1-15',listprice:130},
+{id:2,ordername:'苹果2',price:120,number:1,yunfei:10,orderprice:130,time:'2018-1-15',listprice:130},
+{id:3,ordername:'苹果3',price:120,number:1,yunfei:10,orderprice:130,time:'2018-1-15',listprice:130},
+{id:4,ordername:'苹果4',price:120,number:1,yunfei:10,orderprice:130,time:'2018-1-15',listprice:130}]
+//let rootapi='http://localhost:8012/'		
+loadingTbody(tmpdata);
+//$.post(rootapi+'/api/orderlist',{},function(res){
+//	console.log(res);
+//	if (res.err==0) {
+//	   	loadingTbody(res.data);
+//	   }else{
+//	   	alert(res.msg)
+//	   }
+//},'json')
+
+
+//根据数据渲染列表
+			function loadingTbody(data) {
+				console.log(data)
+				var allString = '';
+				for(var i = 0; i < data.length; i++) {
+					console.log(data[0].id)
+					var tr = `
+						<tr class="text-c">
+								<td><input name="" type="checkbox" value=""></td>
+								<td>${i+1}</td>
+								<td>${data[i].ordername}</td>
+								<td class="text-c">${data[i].price}</td>
+								<td class="text-c">${data[i].number}</td>
+								<td class="text-c">${data[i].yunfei}</td>
+								<td class="text-c">${data[i].orderprice}</td>
+								<td>${data[i].time}</td>
+								<td class="text-c">${data[i].listprice}</td>
+								<td class="td-manage">
+									<a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'${data[i].id}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							</tr>
+	                        `;
+					allString += tr
+				}
+				$('tbody').html(allString);
+//				let rootpath='http://localhost:8012'
+//				$.post(rootpath+'/layui-v2.4.5/orderlist',data,function(res){
+//		    console.log(res);
+//		var obj = JSON.parse(res);
+//		console.log(obj);
+		
+		
+//	})
+			}
+</script>
+</body>
+</html>
+      

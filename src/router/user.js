@@ -21,7 +21,7 @@ Router.post('/',urlencoded,(req,res)=>{
 
         // 使用某个数据库，无则自动创建
         let db = database.db('test');
-
+        
         // 使用集合
         let user = db.collection('user');
 
@@ -50,5 +50,12 @@ Router.post('/',urlencoded,(req,res)=>{
 
     });
 });
+Router.post('/orderlist',urlencoded,(req,res)=>{
+	console.log(222)
+//	MongoClient.connect('mongodb://localhost:27017/test',(err, database)=>{
+//		let  orderlist= db.collection('orderlist'); 
+//	})
+}
+)
 
 module.exports = Router;
